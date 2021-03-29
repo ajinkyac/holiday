@@ -1,0 +1,24 @@
+<div class="data layout-column align-items-center mt-50">
+  <section class="layout-row align-items-center justify-content-center">
+    <button data-test-id="submit-button" (click)="getDate()">Get Date</button>
+  </section>
+
+  <section *ngIf="isHolidayFetched" class="mt-20 layout-row align-items-center justify-content-center">
+    <div class="card outlined">
+      <div class="card-text pt-10 layout-column align-items-center justify-content-center">
+        <div class="mt-10 outlined" data-test-id="date">
+          Date: {{ holiday?.date }}
+        </div>
+        <div class="mt-10 outlined" data-test-id="holiday">
+          <b *ngIf="isItHoliday; else notAHoliday">{{ holiday?.name }}</b>
+          <ng-template #notAHoliday>
+            <b>NOT A HOLIDAY</b>
+          </ng-template>
+        </div>
+        <div *ngIf="isItHoliday" class="mt-10 outlined" data-test-id="day">
+          Day: {{ holiday?.day }}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
